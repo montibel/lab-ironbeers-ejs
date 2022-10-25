@@ -19,19 +19,14 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get("/beers", (req, res) => {
-  punkAPI.getBeers()
-  .then((data) => {
-       res.render("beers.hbs", {
-      beers: data
-    })
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-})
+app.get("/beers", async (req, res) => {
+const allBeers = await punkAPI.getBeers();
+console.log("Here are the beers", allBeers);
+//const alltheBeers = {allBeers};
+res.render("beer", allBeers )
+}); 
 
-app.get('/', (req, res) => {
+app.get('random-beer', (req, res) => {
   res.render('random-beer');
 });
 
