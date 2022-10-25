@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/styles.css" />
-    <title>IronBeers</title>
-</head>
-<body>
-   hi
-    <%- body %>
-</body>
-</html>
+<h1>Beers</h1>
+
+<div>
+    <ul>
+    {{#each beersFromApi}}
+        <div class = "center">
+            <li><img src="{{this.image_url}}"/></li>
+            <li><b>{{this.name}}</b></li>
+            <li>{{this.description}}</li>
+            <li>{{this.tagline}}</li>
+        </div>
+
+    {{/each}}
+</ul>
+
+</div>
